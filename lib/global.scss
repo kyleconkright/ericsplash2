@@ -1,11 +1,11 @@
 // VARIABLES
-$purple: #500A3E;
 $white:  #FFF1EE;
 $dark: #26272b;
-$red: #F50033;
 $blue: #114497;
-$lightblue: #53D2FA;
+$lightblue: #1B8EBD;
 $yellow: #FBF369;
+$orange: #FEB54F;
+$darkorange: #F17422;
 
 $space: 16px;
 
@@ -13,8 +13,7 @@ $space: 16px;
 * {
 	font-size: 102%;
 	color: inherit;
-	font-weight: 400;
-	font-family: Montserrat;
+	font-weight: inherit;
 	line-height: 1.25em;
 	padding: 0;
 	margin: 0;
@@ -32,9 +31,14 @@ body, html {
 }
 
 body {
-	background: #1B8EBD url('../../assets/img/ehtp.jpg') no-repeat top;
+	background-image: url('../../assets/img/ehtp.jpg');
+	background-position: top;
+	background-repeat: no-repeat;
+	background-color: $lightblue;
 	background-size: cover;
 	color: $white;
+	font-family: Montserrat;
+	font-weight: 400;
 }
 
 h2 {
@@ -42,6 +46,40 @@ h2 {
 }
 
 
+
+#menu {
+	background: $lightblue;
+	font-size: 1.25em;
+	text-transform: uppercase;
+	letter-spacing: -.05em;
+	border-bottom: 1px solid $white;
+	ul {
+		padding: $space 0;
+		li {
+			display: inline;
+			margin: 0 $space/2;
+			font-weight: 700;
+		}
+	}
+	ul.left {
+		padding: $space 0$space $space;
+		a {
+			
+			.alm {
+				font-weight: inherit;
+				color: $orange;
+			}
+		}
+	}
+	ul.right {
+		text-align: right;
+		text-transform: uppercase;
+		padding: $space $space $space 0;
+		li:last-of-type {
+			color: $orange;
+		}
+	}
+}
 
 #container {
 
@@ -51,20 +89,9 @@ h2 {
 		header {
 			#logo {
 				img {
-					width: 50%;
-					margin: $space*2 auto $space;
+					width: 60%;
+					margin: 0 auto;
 					display: block;
-				}
-			}
-			#menu {
-				font-size: 2em;
-				ul {
-					padding: $space 0;
-					text-align: center;
-					li {
-						display: inline;
-						margin: 0 $space/2;
-					}
 				}
 			}
 		}
@@ -101,14 +128,7 @@ h2 {
 
 		}
 		div#shows {
-			.tour-header {
-				text-align: center;
-				font-size: 1.5em;
-				margin: 0 0 $space;
-				p {
-					font-size: .9em;
-				}
-			}
+
 			ul {
 				li {
 					height: $space*4;
@@ -122,10 +142,13 @@ h2 {
 						float: right;
 						height: inherit;
 						line-height: inherit;
-						a {
+						.tickets {
 							padding: $space/3;
 							border: 2px solid $white;
 							border-radius: 2px;
+						}
+						.soldout {
+							background-color: $darkorange;
 						}
 					}
 					span.city:after {
@@ -138,14 +161,139 @@ h2 {
 			}
 		}
 	}
+	footer {
+		text-align: center;
+		display: block;
+		padding: $space*4 0;
+		font-size: 1.25em;
+		a.enter {
+			color: $orange;
+			text-transform: uppercase;
+			text-transform: uppercase;
+			letter-spacing: -.05em;
+			font-weight: 700;
+			margin: $space 0;
+			display: block;
+		}
+		ul {
+			text-align: center;
+			display: block;
+			li {
+				display: inline;
+				font-size: 1.25em;
+				margin: 0 $space;
+			}
+		}
+		img {
+			width: 5vw;
+			margin: 0 auto;
+			display: block;
+			opacity: .75;
+		}
+	}
 }
 
 
 
 @media only screen
-and (max-width: 1100px) {
+and (max-width: 1024px) {
 	[class*=bit-] {
 		// width: 100%;
+	}
+	#menu {
+		text-align: center;
+		ul.right, ul.left {
+			text-align: center;
+			padding: 0 0 $space;
+		}
+		ul.left {
+			padding: $space 0;
+		}
+	}
+	#container {
+		#content {
+			width: 80%;
+		}
+	}
+
+}
+
+@media only screen
+and (max-width: 768px) {
+	[class*=bit-] {
+		// width: 100%;
+	}
+	body {
+		background-color: $lightblue;
+		background-image: none;
+		font-size: 80%;
+	}
+	#menu {
+		text-align: center;
+		padding: 0;
+		.alm, a.enter {
+			display: block;
+		}
+		a.enter {
+			margin: $space/2 0 0;
+		}
+		ul {
+			padding: 0;
+		}
+		ul.right, ul.left {
+			text-align: center;
+			padding: 0;
+		}
+		ul.left {
+			padding: $space 0;
+		}
+	}
+	#container {
+		background: url('../../assets/img/ehtp.jpg') no-repeat top;
+		background-size: contain;
+		#content {
+			header {
+				#logo {
+					img {
+						width: 90%;
+					}
+				}
+			}
+			width: 90%;
+			div#shows {
+				font-size: 150%;
+				text-align: center;
+				ul {
+					li > * {
+						display: block;
+						clear: both;
+					}
+					li {
+						padding: $space 0 0;
+						height: auto;
+						span.city:after {
+							content: "";
+						}
+						span.city:before {
+							content: "";
+						}
+						div.links {
+							float: none;
+						}
+					}
+				}
+			}
+		}
+		footer {
+			ul {
+				li {
+					margin: 0 $space/2;
+				}
+			}
+			img {
+				width: 13%;
+			}
+		}
 	}
 
 }
