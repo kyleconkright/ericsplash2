@@ -28,12 +28,13 @@
       success: function(results) {
         console.log('success');
         return $.each(results, function() {
-          var city, date, show, ticket, ticketType, vip, vipSoldOut;
+          var city, date, show, ticket, ticketType, vip, vipNone, vipSoldOut;
           date = this.datetime.split('T');
           show = date[0].split('-');
           city = this.venue.city.toLowerCase();
           vip = '<a href="https://www.applauze.com/tours/erichutchinson" class="tickets vip ' + city + '">VIP Package</a> ';
           vipSoldOut = '<span class="tickets soldout ' + city + '">VIP Sold Out</span> ';
+          vipNone = '';
           ticketType = this.ticket_type;
           if (this.ticket_type === 'Sold Out') {
             ticket = '<span class="tickets soldout ' + city + '">Sold Out</span>';
@@ -49,6 +50,13 @@
               break;
             case 'washington':
               vip = vipSoldOut;
+          }
+          switch (city) {
+            case 'san francisco':
+              vip = vipNone;
+              break;
+            case 'napa':
+              vip = vipNone;
           }
           return $('<li> <span class="date">' + show[1] + '.' + show[2] + '.' + show[0] + '</span> <span class="city">' + this.venue.city + ', ' + this.venue.region + '</span> <span class="venue">' + this.venue.name + '</span> <div class="links">' + vip + '' + ticket + '</div> </li>').appendTo('#shows ul');
         });

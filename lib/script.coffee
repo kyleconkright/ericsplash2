@@ -35,6 +35,7 @@ $ ->
 				city = this.venue.city.toLowerCase()	
 				vip = '<a href="https://www.applauze.com/tours/erichutchinson" class="tickets vip '+city+'">VIP Package</a> '
 				vipSoldOut = '<span class="tickets soldout '+city+'">VIP Sold Out</span> '
+				vipNone = ''
 				ticketType = this.ticket_type
 
 				if this.ticket_type is 'Sold Out'
@@ -46,6 +47,10 @@ $ ->
 					when 'philadelphia' then vip = vipSoldOut
 					when 'st paul' then vip = vipSoldOut
 					when 'washington' then vip = vipSoldOut	
+
+				switch city
+					when 'san francisco' then vip = vipNone
+					when 'napa' then vip = vipNone
 					
 				$('<li>
 					<span class="date">'+show[1]+'.'+show[2]+'.'+show[0]+'</span>
