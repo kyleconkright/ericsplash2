@@ -59,6 +59,21 @@
               break;
             case 'atlanta':
               vip = vipSoldOut;
+              break;
+            case 'new york':
+              vip = vipSoldOut;
+              break;
+            case 'columbus':
+              vip = vipSoldOut;
+              break;
+            case 'akron':
+              vip = vipSoldOut;
+              break;
+            case 'madison':
+              vip = vipSoldOut;
+              break;
+            case 'chicago':
+              vip = vipSoldOut;
           }
           switch (city) {
             case 'san francisco':

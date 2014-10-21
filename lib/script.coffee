@@ -49,7 +49,12 @@ $ ->
 					when 'washington' then vip = vipSoldOut
 					when 'boston' then vip = vipSoldOut
 					when 'boulder' then vip = vipSoldOut
-					when 'atlanta' then vip = vipSoldOut	
+					when 'atlanta' then vip = vipSoldOut
+					when 'new york' then vip = vipSoldOut
+					when 'columbus' then vip = vipSoldOut
+					when 'akron' then vip = vipSoldOut
+					when 'madison' then vip = vipSoldOut
+					when 'chicago' then vip = vipSoldOut	
 
 				switch city
 					when 'san francisco' then vip = vipNone
